@@ -23,7 +23,12 @@ add_executable(tsp main.cpp
         src/neighbor/twoopt/TwoOptNeighbor.cpp
         include/neighbor/twoopt/TwoOptNeighbor.h
         include/search/Search.h
-        include/search/local/LocalSearch.cpp
-        include/search/local/LocalSearch.h)
+        src/search/local/LocalSearch.cpp
+        include/search/local/LocalSearch.h
+        src/search/local/iterated/IteratedLocalSearch.cpp
+        include/search/local/iterated/IteratedLocalSearch.h
+        src/search/local/variable/VariableLocalSearch.cpp
+        include/search/local/variable/VariableLocalSearch.h
+)
 
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})

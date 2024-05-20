@@ -2,6 +2,8 @@
 
 #include "../include/Solution.h"
 
+#include <algorithm>
+
 Solution::Solution(const Instance &instance) : instance(instance) {
     for (int i = 0; i < instance.getCities().size(); ++i) {
         cities.push_back(i);

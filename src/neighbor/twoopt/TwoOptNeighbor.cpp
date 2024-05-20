@@ -1,6 +1,8 @@
 #include <cmath>
 #include "../../../include/neighbor/twoopt/TwoOptNeighbor.h"
 
+#include <algorithm>
+
 Solution TwoOptNeighbor::generateNeighbor(Solution solution, int i, int j) {
     std::reverse(solution.getCities().begin() + i, solution.getCities().begin() + j + 1);
     return solution;
