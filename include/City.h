@@ -1,21 +1,18 @@
-#pragma oncle
+#pragma once
 
 #include <string>
-#include <ostream>
-
-using namespace std;
 
 class City {
 private:
-    string name;
+    std::string name;
     double latitude;
     double longitude;
 public:
-    City(string name, double latitude, double longitude);
+    City(std::string name, double latitude, double longitude);
 
-    [[nodiscard]] double distanceTo(const City &city) const;
+    [[nodiscard]] double distance(const City &other) const;
 
-    static double toRadian(double val);
+    [[nodiscard]] double getRadianLatitude() const;
 
-    friend ostream &operator<<(ostream &os, const City &city);
+    [[nodiscard]] double getRadianLongitude() const;
 };

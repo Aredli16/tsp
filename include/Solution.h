@@ -2,17 +2,32 @@
 
 #include <vector>
 #include <ostream>
-#include "Graph.h"
-
-using namespace std;
+#include "Instance.h"
 
 class Solution {
 private:
-    vector<int> cities;
+    std::vector<int> cities;
+    Instance instance;
 public:
-    explicit Solution(const Graph &graph);
+    explicit Solution(const Instance &instance);
 
-    friend ostream &operator<<(ostream &os, const Solution &solution);
+    double evaluate();
 
-    const vector<int> &getCities() const;
+    friend std::ostream &operator<<(std::ostream &os, const Solution &solution);
+
+    void shuffle();
+
+    size_t size();
+
+    [[nodiscard]] const Instance &getInstance() const;
+
+    int operator[](int i);
+
+    void swap(int i, int j);
+
+    void insert(int index, int city);
+
+    void erase(int index);
+
+    [[nodiscard]] std::vector<int> &getCities();
 };

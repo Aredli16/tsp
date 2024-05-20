@@ -3,21 +3,27 @@ project(tsp)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(tsp src/main.cpp
+add_executable(tsp main.cpp
         src/City.cpp
         include/City.h
-        include/Graph.h
-        src/Graph.cpp
-        include/Solver.h
-        src/Route.cpp
-        include/Route.h
-        src/TSPApplication.cpp
-        include/TSPApplication.h
-        src/Context.cpp
-        include/Context.h
+        src/Instance.cpp
+        include/Instance.h
         src/Solution.cpp
         include/Solution.h
-        src/RandomSolver.cpp
-        include/RandomSolver.h)
+        include/solver/Solver.h
+        src/solver/random/RandomSolver.cpp
+        include/solver/random/RandomSolver.h
+        src/solver/greedy/GreedySolver.cpp
+        include/solver/greedy/GreedySolver.h
+        include/neighbor/Neighbor.h
+        src/neighbor/swap/SwapNeighbor.cpp
+        include/neighbor/swap/SwapNeighbor.h
+        src/neighbor/reintegration/ReintegrationNeighbor.cpp
+        include/neighbor/reintegration/ReintegrationNeighbor.h
+        src/neighbor/twoopt/TwoOptNeighbor.cpp
+        include/neighbor/twoopt/TwoOptNeighbor.h
+        include/search/Search.h
+        include/search/local/LocalSearch.cpp
+        include/search/local/LocalSearch.h)
 
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})

@@ -3,20 +3,19 @@
 
 #include "../include/City.h"
 
-City::City(string name, double latitude, double longitude) : name(std::move(name)), latitude(latitude),
-                                                             longitude(longitude) {}
+City::City(std::string name, double latitude, double longitude) : name(std::move(name)), latitude(latitude),
+                                                                  longitude(longitude) {}
 
-double City::distanceTo(const City &city) const {
-    return 6378.137 * acos(sin(toRadian(this->latitude)) * sin(toRadian(city.latitude)) +
-                           cos(toRadian(this->latitude)) * cos(toRadian(city.latitude)) *
-                           cos(toRadian(this->longitude) - toRadian(city.longitude)));;
+double City::distance(const City &other) const {
+    return 6378.137 * acos(sin(getRadianLatitude()) * sin(other.getRadianLatitude()) +
+                           cos(getRadianLatitude()) * cos(other.getRadianLatitude()) *
+                           cos(getRadianLongitude() - other.getRadianLongitude()));
 }
 
-double City::toRadian(double val) {
-    return val * M_PI / 180;
+double City::getRadianLatitude() const {
+    return M_PI * latitude / 180;
 }
 
-ostream &operator<<(ostream &os, const City &city) {
-    os << "name: " << city.name << " latitude: " << city.latitude << " longitude: " << city.longitude;
-    return os;
+double City::getRadianLongitude() const {
+    return M_PI * longitude / 180;
 }
